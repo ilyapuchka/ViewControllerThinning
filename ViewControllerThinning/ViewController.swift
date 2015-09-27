@@ -12,10 +12,22 @@ import SwiftNetworking
 class ViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet
-    var userNameInput: FormTextField!
+    var userNameInput: FormTextField! {
+        didSet {
+            userNameInput.leftView = UIImageView(image: UIImage(.InputEmailIcon))
+            userNameInput.leftViewMode = UITextFieldViewMode.Always
+            userNameInput.updateAppearance()
+        }
+    }
     
     @IBOutlet
-    var passwordInput: FormTextField!
+    var passwordInput: FormTextField! {
+        didSet {
+            passwordInput.leftView = UIImageView(image: UIImage(.InputPasswordIcon))
+            passwordInput.leftViewMode = UITextFieldViewMode.Always
+            userNameInput.updateAppearance()
+        }
+    }
     
     @IBOutlet
     var loginButton: UIButton!
@@ -32,30 +44,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        userNameInput.leftView = UIImageView(image: UIImage(named: "InputEmailIcon"))
-        userNameInput.leftViewMode = UITextFieldViewMode.Always
-        userNameInput.leftView?.tintColor = UIColor.lightTextColor()
-        userNameInput.textColor = UIColor.whiteColor()
-        userNameInput.attributedPlaceholder = NSAttributedString(string: userNameInput.placeholder!, attributes: [
-            NSForegroundColorAttributeName: UIColor.lightTextColor()
-            ])
-        
-        passwordInput.leftView = UIImageView(image: UIImage(named: "InputPasswordIcon"))
-        passwordInput.leftViewMode = UITextFieldViewMode.Always
-        passwordInput.leftView?.tintColor = UIColor.lightTextColor()
-        passwordInput.textColor = UIColor.whiteColor()
-        passwordInput.attributedPlaceholder = NSAttributedString(string: passwordInput.placeholder!, attributes: [
-            NSForegroundColorAttributeName: UIColor.lightTextColor()
-            ])
-        
-        let invalidIndicatorView = UIView(frame: CGRectMake(0, 0, CGRectGetHeight(userNameInput.bounds)/5, CGRectGetHeight(userNameInput.bounds)/5))
-        invalidIndicatorView.layer.cornerRadius = CGRectGetHeight(invalidIndicatorView.bounds) / 2
-        invalidIndicatorView.backgroundColor = UIColor(red: 220.0/255.0, green: 0, blue: 0, alpha: 1)
-        
-        userNameInput.rightView = invalidIndicatorView
-        passwordInput.rightView = invalidIndicatorView
         
         view.addGestureRecognizer(endEditingTapRecognizer)
     }
@@ -88,15 +76,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 
     func textFieldDidBeginEditing(textField: UITextField) {
-        UIView.animateWithDuration(0.25, delay: 0, options: [UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
-            textField.backgroundColor = UIColor(red: 145.0/255.0, green: 145.0/255.0, blue: 145.0/255.0, alpha: 1)
-            }, completion: nil)
+        self.view.changeAnimated(true, options: [.BeginFromCurrentState]) {
+            textField.highlighted = true
+            (textField as? ThemedView)?.updateAppearance()
+        }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
-        UIView.animateWithDuration(0.25, delay: 0, options: [UIViewAnimationOptions.BeginFromCurrentState], animations: { () -> Void in
-            textField.backgroundColor = UIColor(red: 103.0/255.0, green: 103.0/255.0, blue: 103.0/255.0, alpha: 1)
-            }, completion: nil)
+        self.view.changeAnimated(true, options: [.BeginFromCurrentState]) {
+            textField.highlighted = false
+            (textField as? ThemedView)?.updateAppearance()
+        }
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

@@ -8,7 +8,55 @@
 
 import UIKit
 
-class FormTextField: UITextField {
+extension ThemedView where Self: FormTextField {
+    
+    func attributedPlaceholder() -> NSAttributedString? {
+        if let placeholder = placeholder {
+            return NSAttributedString(string: placeholder, attributes: [
+                NSForegroundColorAttributeName: theme.colorForTag(ThemeColorTag.PlaceholderColor)
+                ])
+        }
+        return nil
+    }
+
+}
+
+class FormTextField: UITextField, ThemedView {
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        initialized()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        initialized()
+    }
+    
+    func initialized() {
+        rightView = InvalidInputIndicator(textField: self)
+        updateAppearance()
+    }
+
+    var theme: ColorTheme = FormTextFieldDefaultTheme() {
+        didSet {
+            updateAppearance()
+        }
+    }
+    
+    func updateAppearance() {
+        tintColor = theme.colorForTag(ThemeColorTag.TintColor)
+        textColor = theme.colorForTag(ThemeColorTag.TextColor)
+        
+        backgroundColor = highlighted ?
+            theme.colorForTag(ThemeColorTag.HighlightedBackgroundColor) :
+            theme.colorForTag(ThemeColorTag.BackgroundColor)
+        
+        attributedPlaceholder = attributedPlaceholder()
+        leftView?.tintColor = theme.colorForTag(ThemeColorTag.LeftViewTintColor)
+        rightView?.tintColor = theme.colorForTag(ThemeColorTag.RightViewTintColor)
+        (rightView as? InvalidInputIndicator)?.backgroundColor = theme.colorForTag(ThemeColorTag.InvalidIndicatorColor)
+    }
     
     override func leftViewRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectMake(bounds.size.height / 5, bounds.size.height / 3, bounds.size.height / 3, bounds.size.height / 3)
@@ -21,7 +69,7 @@ class FormTextField: UITextField {
         rect.size.width = rightViewOriginX - rect.origin.x
         return rect
     }
-    
+
     override func editingRectForBounds(bounds: CGRect) -> CGRect {
         return textRectForBounds(bounds)
     }
@@ -36,3 +84,16 @@ class FormTextField: UITextField {
     }
     
 }
+
+class InvalidInputIndicator: UIView {
+    
+    init(textField: FormTextField) {
+        super.init(frame: CGRectMake(0, 0, CGRectGetHeight(textField.bounds)/5, CGRectGetHeight(textField.bounds)/5))
+        self.layer.cornerRadius = CGRectGetHeight(self.bounds) / 2
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
+
