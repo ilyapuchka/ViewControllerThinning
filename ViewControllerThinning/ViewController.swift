@@ -33,11 +33,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        loginButton.layer.cornerRadius = 2.5
         
         userNameInput.leftView = UIImageView(image: UIImage(named: "InputEmailIcon"))
         userNameInput.leftViewMode = UITextFieldViewMode.Always
-        userNameInput.layer.cornerRadius = 2.5
         userNameInput.leftView?.tintColor = UIColor.lightTextColor()
         userNameInput.textColor = UIColor.whiteColor()
         userNameInput.attributedPlaceholder = NSAttributedString(string: userNameInput.placeholder!, attributes: [
@@ -46,7 +44,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         passwordInput.leftView = UIImageView(image: UIImage(named: "InputPasswordIcon"))
         passwordInput.leftViewMode = UITextFieldViewMode.Always
-        passwordInput.layer.cornerRadius = 2.5
         passwordInput.leftView?.tintColor = UIColor.lightTextColor()
         passwordInput.textColor = UIColor.whiteColor()
         passwordInput.attributedPlaceholder = NSAttributedString(string: passwordInput.placeholder!, attributes: [
