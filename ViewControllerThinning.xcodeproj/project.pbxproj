@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		098AF8971BC0057E00D43EE0 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */; settings = {ASSET_TAGS = (); }; };
 		09BAC98C1BB802BA00B0F90D /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC98B1BB802BA00B0F90D /* UIImage+Named.swift */; settings = {ASSET_TAGS = (); }; };
 		09BAC98E1BB8048700B0F90D /* UIView+InterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC98D1BB8048700B0F90D /* UIView+InterfaceBuilder.swift */; settings = {ASSET_TAGS = (); }; };
 		09BAC9921BB805A300B0F90D /* UIView+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9911BB805A300B0F90D /* UIView+Appearance.m */; settings = {ASSET_TAGS = (); }; };
 		09BAC9951BB809A800B0F90D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9941BB809A800B0F90D /* UIView+Extensions.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC9981BB8118800B0F90D /* ThemedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9971BB8118800B0F90D /* ThemedView.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC9A21BB817EC00B0F90D /* FormTextFieldDefaultTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A11BB817EC00B0F90D /* FormTextFieldDefaultTheme.swift */; settings = {ASSET_TAGS = (); }; };
+		09BAC9A21BB817EC00B0F90D /* FormTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A11BB817EC00B0F90D /* FormTextFieldTheme.swift */; settings = {ASSET_TAGS = (); }; };
 		09BAC9A71BB897C000B0F90D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A61BB897C000B0F90D /* AuthView.swift */; settings = {ASSET_TAGS = (); }; };
 		09BAC9A91BB89BA000B0F90D /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BAC9A81BB89BA000B0F90D /* AuthView.xib */; settings = {ASSET_TAGS = (); }; };
 		09E2D41E1BB7476100DBF6BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2D41D1BB7476100DBF6BA /* AppDelegate.swift */; };
@@ -25,14 +25,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTheme.swift; sourceTree = "<group>"; };
 		09BAC98B1BB802BA00B0F90D /* UIImage+Named.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Named.swift"; sourceTree = "<group>"; };
 		09BAC98D1BB8048700B0F90D /* UIView+InterfaceBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+InterfaceBuilder.swift"; sourceTree = "<group>"; };
 		09BAC9901BB805A300B0F90D /* UIView+Appearance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Appearance.h"; sourceTree = "<group>"; };
 		09BAC9911BB805A300B0F90D /* UIView+Appearance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Appearance.m"; sourceTree = "<group>"; };
 		09BAC9931BB805B400B0F90D /* ViewControllerThinning-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ViewControllerThinning-Bridging-Header.h"; sourceTree = "<group>"; };
 		09BAC9941BB809A800B0F90D /* UIView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extensions.swift"; sourceTree = "<group>"; };
-		09BAC9971BB8118800B0F90D /* ThemedView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThemedView.swift; sourceTree = "<group>"; };
-		09BAC9A11BB817EC00B0F90D /* FormTextFieldDefaultTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextFieldDefaultTheme.swift; sourceTree = "<group>"; };
+		09BAC9A11BB817EC00B0F90D /* FormTextFieldTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormTextFieldTheme.swift; sourceTree = "<group>"; };
 		09BAC9A61BB897C000B0F90D /* AuthView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthView.swift; sourceTree = "<group>"; };
 		09BAC9A81BB89BA000B0F90D /* AuthView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuthView.xib; sourceTree = "<group>"; };
 		09E2D41A1BB7476100DBF6BA /* ViewControllerThinning.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ViewControllerThinning.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -84,8 +84,8 @@
 		09BAC9961BB8118800B0F90D /* Themes */ = {
 			isa = PBXGroup;
 			children = (
-				09BAC9971BB8118800B0F90D /* ThemedView.swift */,
-				09BAC9A11BB817EC00B0F90D /* FormTextFieldDefaultTheme.swift */,
+				098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */,
+				09BAC9A11BB817EC00B0F90D /* FormTextFieldTheme.swift */,
 			);
 			path = Themes;
 			sourceTree = "<group>";
@@ -233,15 +233,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				09BAC9951BB809A800B0F90D /* UIView+Extensions.swift in Sources */,
-				09BAC9A21BB817EC00B0F90D /* FormTextFieldDefaultTheme.swift in Sources */,
+				09BAC9A21BB817EC00B0F90D /* FormTextFieldTheme.swift in Sources */,
 				09E2D46F1BB75ED400DBF6BA /* FormTextField.swift in Sources */,
 				09E2D4711BB7711400DBF6BA /* ViewController.swift in Sources */,
 				09BAC9921BB805A300B0F90D /* UIView+Appearance.m in Sources */,
 				09BAC98E1BB8048700B0F90D /* UIView+InterfaceBuilder.swift in Sources */,
 				09BAC9A71BB897C000B0F90D /* AuthView.swift in Sources */,
-				09BAC9981BB8118800B0F90D /* ThemedView.swift in Sources */,
 				09BAC98C1BB802BA00B0F90D /* UIImage+Named.swift in Sources */,
 				09E2D41E1BB7476100DBF6BA /* AppDelegate.swift in Sources */,
+				098AF8971BC0057E00D43EE0 /* TextFieldTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

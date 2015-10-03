@@ -35,7 +35,7 @@ class AuthView: UIView, UITextFieldDelegate {
         didSet {
             userNameInput.leftView = UIImageView(image: UIImage(.InputEmailIcon))
             userNameInput.leftViewMode = UITextFieldViewMode.Always
-            userNameInput.updateAppearance()
+            userNameInput.theme = FormTextFieldCustomTheme()
         }
     }
     
@@ -44,7 +44,7 @@ class AuthView: UIView, UITextFieldDelegate {
         didSet {
             passwordInput.leftView = UIImageView(image: UIImage(.InputPasswordIcon))
             passwordInput.leftViewMode = UITextFieldViewMode.Always
-            passwordInput.updateAppearance()
+            passwordInput.theme = FormTextFieldCustomTheme()
         }
     }
 
@@ -79,14 +79,14 @@ class AuthView: UIView, UITextFieldDelegate {
     func textFieldDidBeginEditing(textField: UITextField) {
         self.changeAnimated(true, options: [.BeginFromCurrentState]) {
             textField.highlighted = true
-            (textField as? ThemedView)?.updateAppearance()
+            (textField as? FormTextField)?.updateAppearance()
         }
     }
     
     func textFieldDidEndEditing(textField: UITextField) {
         self.changeAnimated(true, options: [.BeginFromCurrentState]) {
             textField.highlighted = false
-            (textField as? ThemedView)?.updateAppearance()
+            (textField as? FormTextField)?.updateAppearance()
         }
     }
     

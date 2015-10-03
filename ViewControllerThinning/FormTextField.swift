@@ -8,20 +8,7 @@
 
 import UIKit
 
-extension ThemedView where Self: FormTextField {
-    
-    func attributedPlaceholder() -> NSAttributedString? {
-        if let placeholder = placeholder {
-            return NSAttributedString(string: placeholder, attributes: [
-                NSForegroundColorAttributeName: theme.colorForTag(ThemeColorTag.PlaceholderColor)
-                ])
-        }
-        return nil
-    }
-
-}
-
-class FormTextField: UITextField, ThemedView {
+class FormTextField: UITextField {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -37,25 +24,23 @@ class FormTextField: UITextField, ThemedView {
         rightView = InvalidInputIndicator(textField: self)
         updateAppearance()
     }
-
-    var theme: ColorTheme = FormTextFieldDefaultTheme() {
+    
+    var theme: FormTextFieldTheme = FormTextFieldDefaultTheme() {
         didSet {
             updateAppearance()
         }
     }
     
     func updateAppearance() {
-        tintColor = theme.colorForTag(ThemeColorTag.TintColor)
-        textColor = theme.colorForTag(ThemeColorTag.TextColor)
-        
+        updateAppearance(theme)
+    }
+    
+    func updateAppearance(theme: FormTextFieldTheme) {
+        super.updateAppearance(theme)
         backgroundColor = highlighted ?
-            theme.colorForTag(ThemeColorTag.HighlightedBackgroundColor) :
-            theme.colorForTag(ThemeColorTag.BackgroundColor)
-        
-        attributedPlaceholder = attributedPlaceholder()
-        leftView?.tintColor = theme.colorForTag(ThemeColorTag.LeftViewTintColor)
-        rightView?.tintColor = theme.colorForTag(ThemeColorTag.RightViewTintColor)
-        (rightView as? InvalidInputIndicator)?.backgroundColor = theme.colorForTag(ThemeColorTag.InvalidIndicatorColor)
+            theme.highlightedBackgroundColor :
+            theme.backgroundColor
+        (rightView as? InvalidInputIndicator)?.backgroundColor = theme.invalidIndicatorColor
     }
     
     override func leftViewRectForBounds(bounds: CGRect) -> CGRect {
