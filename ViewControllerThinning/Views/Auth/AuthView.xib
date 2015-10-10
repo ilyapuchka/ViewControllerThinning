@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="ViewControllerThinning" customModuleProvider="target">
             <connections>
+                <outlet property="formBehaviour" destination="jtY-3h-j4H" id="TpL-Oq-DWj"/>
                 <outlet property="view" destination="rfg-P2-PQo" id="Fp9-lf-dkW"/>
             </connections>
         </placeholder>
@@ -35,6 +36,7 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <outlet property="delegate" destination="rfg-P2-PQo" id="8SN-eS-bUI"/>
+                                <outlet property="shakeAnimation" destination="rA2-JS-599" id="M2g-UV-iqm"/>
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="goX-Ub-ZCL" customClass="FormTextField" customModule="ViewControllerThinning" customModuleProvider="target">
@@ -50,9 +52,10 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <outlet property="delegate" destination="rfg-P2-PQo" id="5LT-UC-qce"/>
+                                <outlet property="shakeAnimation" destination="bWN-RV-vvr" id="inw-bV-UFS"/>
                             </connections>
                         </textField>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-3d-YUP">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-3d-YUP" customClass="HighlightableButton" customModule="ViewControllerThinning" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="110" width="250" height="45"/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -63,10 +66,12 @@
                                 <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
                                     <real key="value" value="2.5"/>
                                 </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="backgroundColorForHighlightedState">
+                                    <color key="value" red="0.082352941176470587" green="0.62745098039215685" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="loginButtonTapped:" destination="rfg-P2-PQo" eventType="touchUpInside" id="I7h-hv-BIX"/>
-                                <action selector="loginButtonTouchBegin:" destination="rfg-P2-PQo" eventType="touchDown" id="3bt-Qh-Meh"/>
+                                <action selector="submitForm" destination="jtY-3h-j4H" eventType="touchUpInside" id="Pq4-eF-rPU"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMM-2f-Ppg">
@@ -113,5 +118,23 @@
                 <outlet property="userNameInput" destination="CBw-Dn-pPc" id="fAg-rc-qba"/>
             </connections>
         </view>
+        <customObject id="rA2-JS-599" customClass="ShakeAnimationImp" customModule="ViewControllerThinning" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="CBw-Dn-pPc" id="lJb-oT-b5g"/>
+            </connections>
+        </customObject>
+        <customObject id="bWN-RV-vvr" customClass="ShakeAnimationImp" customModule="ViewControllerThinning" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="goX-Ub-ZCL" id="xXM-t0-TTE"/>
+            </connections>
+        </customObject>
+        <customObject id="jtY-3h-j4H" customClass="AuthFormBehaviour" customModule="ViewControllerThinning" customModuleProvider="target">
+            <connections>
+                <outlet property="passwordInput" destination="goX-Ub-ZCL" id="L2e-Kh-BJa"/>
+                <outlet property="userNameInput" destination="CBw-Dn-pPc" id="WDZ-9d-rHO"/>
+                <outletCollection property="formFields" destination="CBw-Dn-pPc" collectionClass="NSMutableArray" id="zfx-9t-ViZ"/>
+                <outletCollection property="formFields" destination="goX-Ub-ZCL" collectionClass="NSMutableArray" id="5k0-Oh-5eV"/>
+            </connections>
+        </customObject>
     </objects>
 </document>

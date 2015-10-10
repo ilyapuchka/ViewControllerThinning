@@ -43,6 +43,18 @@ class FormTextField: UITextField {
         (rightView as? InvalidInputIndicator)?.backgroundColor = theme.invalidIndicatorColor
     }
     
+    @IBOutlet
+    var shakeAnimation: ShakeAnimation?
+    
+    var invalidInput: Bool = false {
+        didSet {
+            rightViewMode = invalidInput ? .Always : .Never
+            if invalidInput {
+                shakeAnimation?.play()
+            }
+        }
+    }
+    
     override func leftViewRectForBounds(bounds: CGRect) -> CGRect {
         return CGRectMake(bounds.size.height / 5, bounds.size.height / 3, bounds.size.height / 3, bounds.size.height / 3)
     }
@@ -81,4 +93,40 @@ class InvalidInputIndicator: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+//MARK: - Highlightable View
+extension FormTextField: BackgroundHighlightableView {
+    
+    var backgroundColorForHighlightedState: UIColor? {
+        get {
+            return self.theme.highlightedBackgroundColor
+        }
+    }
+    
+    var backgroundColorForNormalState: UIColor? {
+        get {
+            return self.theme.backgroundColor
+        }
+    }
+    
+    override var highlighted: Bool {
+        willSet {
+            setHighlighted(newValue, animated: true)
+        }
+    }
+    
+    override func resignFirstResponder() -> Bool {
+        let resignedFirstResponder = super.resignFirstResponder()
+        highlighted = !resignedFirstResponder
+        return resignedFirstResponder
+    }
+    
+    override func becomeFirstResponder() -> Bool {
+        let becameFirstResponder = super.becomeFirstResponder()
+        highlighted = becameFirstResponder
+        return becameFirstResponder
+    }
+
+}
+
 

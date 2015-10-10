@@ -15,8 +15,6 @@ class ViewController: UIViewController {
         return UIStatusBarStyle.LightContent
     }
     
-    var apiClient: APIClient = APIClient(baseURL: NSURL(string: "http://localhost")!)
-
     override var nibName: String? {
         return "AuthView"
     }
@@ -25,16 +23,14 @@ class ViewController: UIViewController {
         return view as! AuthView
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        authView.onLoginButtonTapped = login
+    @IBOutlet
+    var formBehaviour: AuthFormBehaviour! {
+        didSet {
+            formBehaviour?.onLoggedIn = {[unowned self] in self.handleLogin($0, performedRequest: $1)}
+        }
     }
     
-    func login(username:String, password: String) {
-        apiClient.login(username, password: password, completion: onLoggedIn)
-    }
-    
-    func onLoggedIn(error: NSError?, performedRequest: Bool) {
+    func handleLogin(error: NSError?, performedRequest: Bool) {
         if let error = error {
             
             let isBackendError = error.domain == NetworkErrorDomain
@@ -44,17 +40,24 @@ class ViewController: UIViewController {
                     error.code == NetworkErrorCode.InvalidCredentials.rawValue {
                         
                         if underlyingError.code == NetworkErrorCode.InvalidUserName.rawValue {
-                            authView.markUserNameAsInvalid(true)
+                            authView.userNameInput.invalidInput = true
                             message = "Invalid login."
                         }
-                        else if underlyingError.code == NetworkErrorCode.InvalidPassword.rawValue {
-                            authView.markPasswordAsInvalid(true)
+                        else {
+                            authView.userNameInput.invalidInput = false
+                        }
+                        
+                        if underlyingError.code == NetworkErrorCode.InvalidPassword.rawValue {
+                            authView.passwordInput.invalidInput = true
                             message = "Invalid password."
+                        }
+                        else {
+                            authView.passwordInput.invalidInput = false
                         }
                 }
                 else {
-                    authView.markUserNameAsInvalid(false)
-                    authView.markPasswordAsInvalid(false)
+                    authView.userNameInput.invalidInput = false
+                    authView.passwordInput.invalidInput = false
                     message = error.userInfo[NSLocalizedDescriptionKey] as? String
                 }
             }
@@ -66,8 +69,8 @@ class ViewController: UIViewController {
             }
         }
         else {
-            authView.markUserNameAsInvalid(false)
-            authView.markPasswordAsInvalid(false)
+            authView.userNameInput.invalidInput = false
+            authView.passwordInput.invalidInput = false
             //go to next screen
         }
     }
