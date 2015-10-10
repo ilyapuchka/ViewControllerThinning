@@ -32,46 +32,16 @@ class ViewController: UIViewController {
     
     func handleLogin(error: NSError?, performedRequest: Bool) {
         if let error = error {
-            
-            let isBackendError = error.domain == NetworkErrorDomain
-            var message: String?
-            if isBackendError {
-                if let underlyingError = error.userInfo[NSUnderlyingErrorKey] where
-                    error.code == NetworkErrorCode.InvalidCredentials.rawValue {
-                        
-                        if underlyingError.code == NetworkErrorCode.InvalidUserName.rawValue {
-                            authView.userNameInput.invalidInput = true
-                            message = "Invalid login."
-                        }
-                        else {
-                            authView.userNameInput.invalidInput = false
-                        }
-                        
-                        if underlyingError.code == NetworkErrorCode.InvalidPassword.rawValue {
-                            authView.passwordInput.invalidInput = true
-                            message = "Invalid password."
-                        }
-                        else {
-                            authView.passwordInput.invalidInput = false
-                        }
-                }
-                else {
-                    authView.userNameInput.invalidInput = false
-                    authView.passwordInput.invalidInput = false
-                    message = error.userInfo[NSLocalizedDescriptionKey] as? String
-                }
-            }
-            
+            authView.userNameInput.invalidInput = error.isInvalidUserNameError()
+            authView.passwordInput.invalidInput = error.isInvalidPasswordError()
+
             if performedRequest {
-                let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertControllerStyle.Alert)
-                alert.addAction(UIAlertAction(title: "Close", style: UIAlertActionStyle.Cancel, handler: nil))
-                presentViewController(alert, animated: true, completion: nil)
+                self.displayError(error)
             }
         }
         else {
             authView.userNameInput.invalidInput = false
             authView.passwordInput.invalidInput = false
-            //go to next screen
         }
     }
 

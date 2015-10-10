@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		091989B01BC9536D00E9B560 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */; settings = {ASSET_TAGS = (); }; };
 		098AF8971BC0057E00D43EE0 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */; settings = {ASSET_TAGS = (); }; };
 		099DC0501BC8597D00C61D26 /* FormBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC04F1BC8597C00C61D26 /* FormBehaviour.swift */; settings = {ASSET_TAGS = (); }; };
 		099DC0521BC85A3500C61D26 /* AuthFormBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0511BC85A3500C61D26 /* AuthFormBehaviour.swift */; settings = {ASSET_TAGS = (); }; };
@@ -30,6 +31,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTheme.swift; sourceTree = "<group>"; };
 		099DC04F1BC8597C00C61D26 /* FormBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBehaviour.swift; sourceTree = "<group>"; };
 		099DC0511BC85A3500C61D26 /* AuthFormBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFormBehaviour.swift; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				09BAC9901BB805A300B0F90D /* UIView+Appearance.h */,
 				09BAC9911BB805A300B0F90D /* UIView+Appearance.m */,
 				09BAC9941BB809A800B0F90D /* UIView+Extensions.swift */,
+				091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 				099DC0501BC8597D00C61D26 /* FormBehaviour.swift in Sources */,
 				09BAC9A71BB897C000B0F90D /* AuthView.swift in Sources */,
 				09BAC98C1BB802BA00B0F90D /* UIImage+Named.swift in Sources */,
+				091989B01BC9536D00E9B560 /* UIViewController+Alerts.swift in Sources */,
 				099DC0521BC85A3500C61D26 /* AuthFormBehaviour.swift in Sources */,
 				099DC05A1BC8673D00C61D26 /* FormTextField.swift in Sources */,
 				09E2D41E1BB7476100DBF6BA /* AppDelegate.swift in Sources */,
