@@ -9,30 +9,20 @@
 import UIKit
 import SwiftNetworking
 
-class AuthFormBehaviour: NSObject, FormBehaviour {
+protocol AuthFormBehaviour: FormBehaviour, UITextFieldDelegate {
     
-    var apiClient: APIClient = APIClient(baseURL: NSURL(string: "http://localhost")!)
+    var apiClient: APIClient {get}
     
-    override init() {}
+    var userNameInput: UITextField! {get}
+    var passwordInput: UITextField! {get}
     
-    @IBOutlet
-    var userNameInput: UITextField! {
-        didSet {
-            userNameInput.delegate = self
-        }
-    }
+    var onCancel: (()->())? {get set}
+    var onLoggedIn: ((error: NSError?, performedRequest: Bool) -> ())? {get set}
     
-    @IBOutlet
-    var passwordInput: UITextField! {
-        didSet {
-            passwordInput.delegate = self
-        }
-    }
+}
+
+extension AuthFormBehaviour {
     
-    @IBOutlet
-    var formFields: [UIView]!
-    
-    @IBAction
     func submitForm() {
         guard let
             username = userNameInput.text,
@@ -44,33 +34,15 @@ class AuthFormBehaviour: NSObject, FormBehaviour {
         login(username, password: password)
     }
     
-    var onCancel: (()->())?
-    
-    @IBAction
     func cancelForm() {
         onCancel?()
     }
-    
-    var onLoggedIn: ((error: NSError?, performedRequest: Bool) -> ())?
 
     func login(username: String, password: String) {
         apiClient.login(username, password: password) { [weak self] (error, performedRequest) -> () in
             self?.onLoggedIn?(error: error, performedRequest: performedRequest)
         }
     }
-    
-}
 
-extension AuthFormBehaviour: UITextFieldDelegate {
-    
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
-        if textField == formFields.last {
-            submitForm()
-        }
-        else {
-            goToNextFormField()
-        }
-        return true
-    }
 }
 

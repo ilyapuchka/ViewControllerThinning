@@ -9,7 +9,7 @@
 import UIKit
 import SwiftNetworking
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, AuthFormBehaviour {
 
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
@@ -23,11 +23,33 @@ class ViewController: UIViewController {
         return view as! AuthView
     }
     
+    var apiClient: APIClient = APIClient(baseURL: NSURL(string: "http://localhost")!)
+    
     @IBOutlet
-    var formBehaviour: AuthFormBehaviour! {
+    var userNameInput: UITextField! {
         didSet {
-            formBehaviour?.onLoggedIn = {[unowned self] in self.handleLogin($0, performedRequest: $1)}
+            userNameInput.delegate = self
         }
+    }
+    
+    @IBOutlet
+    var passwordInput: UITextField! {
+        didSet {
+            passwordInput.delegate = self
+        }
+    }
+    
+    @IBOutlet
+    var formFields: [UIView]!
+
+    var onCancel: (()->())?
+    lazy var onLoggedIn: ((error: NSError?, performedRequest: Bool) -> ())? = {[weak self] in
+        return self?.handleLogin
+    }()
+    
+    @IBAction
+    func onSubmitForm() {
+        self.submitForm()
     }
     
     func handleLogin(error: NSError?, performedRequest: Bool) {
@@ -75,6 +97,19 @@ class ViewController: UIViewController {
         }
     }
 
+}
+
+//MARK: - UITextFieldDelegate
+extension ViewController {
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        if textField == formFields.last {
+            submitForm()
+        }
+        else {
+            goToNextFormField()
+        }
+        return true
+    }
 }
 
 extension APIClient {

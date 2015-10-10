@@ -7,8 +7,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="ViewControllerThinning" customModuleProvider="target">
             <connections>
-                <outlet property="formBehaviour" destination="jtY-3h-j4H" id="TpL-Oq-DWj"/>
+                <outlet property="passwordInput" destination="goX-Ub-ZCL" id="FCY-2g-ueh"/>
+                <outlet property="userNameInput" destination="CBw-Dn-pPc" id="0GN-0z-PSo"/>
                 <outlet property="view" destination="rfg-P2-PQo" id="Fp9-lf-dkW"/>
+                <outletCollection property="formFields" destination="CBw-Dn-pPc" id="gtD-LO-cpT"/>
+                <outletCollection property="formFields" destination="goX-Ub-ZCL" id="hXj-nF-M7b"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -71,7 +74,7 @@
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
                             <connections>
-                                <action selector="submitForm" destination="jtY-3h-j4H" eventType="touchUpInside" id="Pq4-eF-rPU"/>
+                                <action selector="onSubmitForm" destination="-1" eventType="touchUpInside" id="Ut2-mm-VlL"/>
                             </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMM-2f-Ppg">
@@ -126,14 +129,6 @@
         <customObject id="bWN-RV-vvr" customClass="ShakeAnimationImp" customModule="ViewControllerThinning" customModuleProvider="target">
             <connections>
                 <outlet property="view" destination="goX-Ub-ZCL" id="xXM-t0-TTE"/>
-            </connections>
-        </customObject>
-        <customObject id="jtY-3h-j4H" customClass="AuthFormBehaviour" customModule="ViewControllerThinning" customModuleProvider="target">
-            <connections>
-                <outlet property="passwordInput" destination="goX-Ub-ZCL" id="L2e-Kh-BJa"/>
-                <outlet property="userNameInput" destination="CBw-Dn-pPc" id="WDZ-9d-rHO"/>
-                <outletCollection property="formFields" destination="CBw-Dn-pPc" collectionClass="NSMutableArray" id="zfx-9t-ViZ"/>
-                <outletCollection property="formFields" destination="goX-Ub-ZCL" collectionClass="NSMutableArray" id="5k0-Oh-5eV"/>
             </connections>
         </customObject>
     </objects>
