@@ -11,26 +11,27 @@ import SwiftNetworking
 
 class AuthFormBehaviour: NSObject, FormBehaviour {
     
-    var apiClient: APIClient = APIClient(baseURL: NSURL(string: "http://localhost")!)
+    let apiClient: APIClient
     
-    override init() {}
+    init(APIClient apiClient: APIClientBox) {
+        self.apiClient = apiClient.unboxed
+    }
     
-    @IBOutlet
     var userNameInput: UITextField! {
         didSet {
             userNameInput.delegate = self
         }
     }
     
-    @IBOutlet
     var passwordInput: UITextField! {
         didSet {
             passwordInput.delegate = self
         }
     }
     
-    @IBOutlet
-    var formFields: [UIView]!
+    var formFields: [UIView]! {
+        return [userNameInput, passwordInput]
+    }
     
     @IBAction
     func submitForm() {

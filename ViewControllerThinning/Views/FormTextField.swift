@@ -43,7 +43,6 @@ class FormTextField: UITextField {
         (rightView as? InvalidInputIndicator)?.backgroundColor = theme.invalidIndicatorColor
     }
     
-    @IBOutlet
     var shakeAnimation: ShakeAnimation?
     
     var invalidInput: Bool = false {

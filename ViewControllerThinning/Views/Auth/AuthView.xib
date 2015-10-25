@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
@@ -7,7 +7,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController" customModule="ViewControllerThinning" customModuleProvider="target">
             <connections>
-                <outlet property="formBehaviour" destination="jtY-3h-j4H" id="TpL-Oq-DWj"/>
                 <outlet property="view" destination="rfg-P2-PQo" id="Fp9-lf-dkW"/>
             </connections>
         </placeholder>
@@ -21,6 +20,7 @@
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email Address" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="CBw-Dn-pPc" customClass="FormTextField" customModule="ViewControllerThinning" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="250" height="45"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.40536221589999999" green="0.40536221589999999" blue="0.40536221589999999" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
@@ -36,11 +36,11 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <outlet property="delegate" destination="rfg-P2-PQo" id="8SN-eS-bUI"/>
-                                <outlet property="shakeAnimation" destination="rA2-JS-599" id="M2g-UV-iqm"/>
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" adjustsFontSizeToFit="NO" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="goX-Ub-ZCL" customClass="FormTextField" customModule="ViewControllerThinning" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="55" width="250" height="45"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.40536221589999999" green="0.40536221589999999" blue="0.40536221589999999" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -52,11 +52,11 @@
                             </userDefinedRuntimeAttributes>
                             <connections>
                                 <outlet property="delegate" destination="rfg-P2-PQo" id="5LT-UC-qce"/>
-                                <outlet property="shakeAnimation" destination="bWN-RV-vvr" id="inw-bV-UFS"/>
                             </connections>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lX1-3d-YUP" customClass="HighlightableButton" customModule="ViewControllerThinning" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="110" width="250" height="45"/>
+                            <animations/>
                             <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <state key="normal" title="LOG IN">
@@ -70,16 +70,15 @@
                                     <color key="value" red="0.082352941176470587" green="0.62745098039215685" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </userDefinedRuntimeAttribute>
                             </userDefinedRuntimeAttributes>
-                            <connections>
-                                <action selector="submitForm" destination="jtY-3h-j4H" eventType="touchUpInside" id="Pq4-eF-rPU"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wMM-2f-Ppg">
                             <rect key="frame" x="0.0" y="165" width="250" height="45"/>
+                            <animations/>
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <state key="normal" title="Forgotten password?"/>
                         </button>
                     </subviews>
+                    <animations/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="CBw-Dn-pPc" firstAttribute="height" secondItem="goX-Ub-ZCL" secondAttribute="height" id="IfK-JQ-ZPz"/>
@@ -104,34 +103,18 @@
                     </constraints>
                 </view>
             </subviews>
+            <animations/>
             <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="Epd-oK-zvK" firstAttribute="centerX" secondItem="rfg-P2-PQo" secondAttribute="centerX" id="iSG-aF-F6j"/>
                 <constraint firstItem="Epd-oK-zvK" firstAttribute="centerY" secondItem="rfg-P2-PQo" secondAttribute="centerY" id="led-CS-hur"/>
             </constraints>
             <connections>
+                <outlet property="cancelButton" destination="wMM-2f-Ppg" id="WyR-oe-uJe"/>
                 <outlet property="loginButton" destination="lX1-3d-YUP" id="Gxa-tO-tfy"/>
                 <outlet property="passwordInput" destination="goX-Ub-ZCL" id="MVH-Ln-5h9"/>
                 <outlet property="userNameInput" destination="CBw-Dn-pPc" id="fAg-rc-qba"/>
             </connections>
         </view>
-        <customObject id="rA2-JS-599" customClass="ShakeAnimationImp" customModule="ViewControllerThinning" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="CBw-Dn-pPc" id="lJb-oT-b5g"/>
-            </connections>
-        </customObject>
-        <customObject id="bWN-RV-vvr" customClass="ShakeAnimationImp" customModule="ViewControllerThinning" customModuleProvider="target">
-            <connections>
-                <outlet property="view" destination="goX-Ub-ZCL" id="xXM-t0-TTE"/>
-            </connections>
-        </customObject>
-        <customObject id="jtY-3h-j4H" customClass="AuthFormBehaviour" customModule="ViewControllerThinning" customModuleProvider="target">
-            <connections>
-                <outlet property="passwordInput" destination="goX-Ub-ZCL" id="L2e-Kh-BJa"/>
-                <outlet property="userNameInput" destination="CBw-Dn-pPc" id="WDZ-9d-rHO"/>
-                <outletCollection property="formFields" destination="CBw-Dn-pPc" collectionClass="NSMutableArray" id="zfx-9t-ViZ"/>
-                <outletCollection property="formFields" destination="goX-Ub-ZCL" collectionClass="NSMutableArray" id="5k0-Oh-5eV"/>
-            </connections>
-        </customObject>
     </objects>
 </document>

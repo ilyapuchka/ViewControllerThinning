@@ -8,25 +8,21 @@
 
 import UIKit
 import SwiftNetworking
+import Typhoon
 
 class ViewController: UIViewController {
-
+    
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return UIStatusBarStyle.LightContent
-    }
-    
-    override var nibName: String? {
-        return "AuthView"
     }
     
     var authView: AuthView! {
         return view as! AuthView
     }
     
-    @IBOutlet
     var formBehaviour: AuthFormBehaviour! {
         didSet {
-            formBehaviour?.onLoggedIn = {[unowned self] in self.handleLogin($0, performedRequest: $1)}
+            formBehaviour.onLoggedIn = {[unowned self] in self.handleLogin($0, performedRequest: $1)}
         }
     }
     

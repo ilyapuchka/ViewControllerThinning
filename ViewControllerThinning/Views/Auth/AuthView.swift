@@ -51,4 +51,6 @@ class AuthView: UIView {
     @IBOutlet
     var loginButton: UIButton!
     
+    @IBOutlet
+    var cancelButton: UIButton!
 }

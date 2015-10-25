@@ -11,5 +11,12 @@ import UIKit
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
+
+}
+
+extension AppDelegate {
+    func initialAssemblies() -> [AnyClass] {
+        return [NetworkComponents.self, UIComponents.self]
+    }
 }
 
