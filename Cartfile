@@ -1,2 +1,2 @@
 github "ilyapuchka/SwiftNetworking" "master"
-github "appsquickly/Typhoon"
+github "ilyapuchka/Dip" "feature/storyboards"

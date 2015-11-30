@@ -7,8 +7,7 @@
 //
 
 import UIKit
-import SwiftNetworking
-import Typhoon
+import Dip
 
 class ViewController: UIViewController {
     
@@ -16,14 +15,38 @@ class ViewController: UIViewController {
         return UIStatusBarStyle.LightContent
     }
     
+    override var nibName: String {
+        return "AuthView"
+    }
+    
     var authView: AuthView! {
         return view as! AuthView
     }
     
-    var formBehaviour: AuthFormBehaviour! {
-        didSet {
-            formBehaviour.onLoggedIn = {[unowned self] in self.handleLogin($0, performedRequest: $1)}
-        }
+    private let _formBehaviour = Injected<AuthFormBehaviour>()
+    
+    var formBehaviour: AuthFormBehaviour? {
+        return _formBehaviour.value
+    }
+    
+    var animationsFactory: AnimationsFactory?
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        formBehaviour?.onLoggedIn = {[unowned self] in self.handleLogin($0, performedRequest: $1)}
+        
+        formBehaviour?.userNameInput = authView.userNameInput
+        formBehaviour?.userNameInput.delegate = formBehaviour
+        
+        formBehaviour?.passwordInput = authView.passwordInput
+        formBehaviour?.passwordInput.delegate = formBehaviour
+        
+        authView.loginButton.addTarget(formBehaviour, action: "submitForm", forControlEvents: .TouchUpInside)
+        authView.cancelButton.addTarget(formBehaviour, action: "cancelForm", forControlEvents: .TouchUpInside)
+
+        authView.userNameInput.shakeAnimation = animationsFactory?.shakeAnimation(authView.userNameInput)
+        authView.passwordInput.shakeAnimation = animationsFactory?.shakeAnimation(authView.passwordInput)
     }
     
     func handleLogin(error: NSError?, performedRequest: Bool) {
@@ -43,26 +66,8 @@ class ViewController: UIViewController {
 
 }
 
-extension APIClient {
-    
-    //Fake login
-    func login(username: String!, password: String!, completion: (error: NSError?, performedRequest: Bool)->()) {
-        
-        var error: NSError?
-        var performedRequest: Bool = false
-        if username == nil || username.characters.count == 0 {
-            error = NSError.errorWithUnderlyingError(NSError(code: .InvalidUserName), code: .InvalidCredentials)
-        }
-        else if password == nil || password.characters.count == 0 {
-            error = NSError.errorWithUnderlyingError(NSError(code: .InvalidPassword), code: .InvalidCredentials)
-        }
-        else {
-            error = NSError(code: NetworkErrorCode.BackendError, userInfo: [NSLocalizedDescriptionKey: "Failed to login."])
-            performedRequest = true
-        }
-
-        dispatch_after(1, dispatch_get_main_queue()) {
-            completion(error: error, performedRequest: performedRequest)
-        }
-    }
+protocol AnimationsFactory {
+    func shakeAnimation(view: UIView) -> ShakeAnimation
 }
+
+

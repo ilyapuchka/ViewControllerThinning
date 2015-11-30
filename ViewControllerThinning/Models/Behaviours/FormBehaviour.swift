@@ -9,7 +9,7 @@
 import UIKit
 
 protocol FormBehaviour {
-    var formFields: [UIView]! {get}
+    var formFields: [UIView] {get}
     func goToNextFormField() -> UIView?
     func currentFormField() -> UIView?
     func submitForm()
@@ -27,7 +27,6 @@ extension FormBehaviour {
     
     func goToNextFormField() -> UIView? {
         guard let
-            formFields = self.formFields,
             currentField = currentFormField(),
             currentFieldIndex = formFields.indexOf(currentField)
             where

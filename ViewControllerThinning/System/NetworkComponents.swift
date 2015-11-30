@@ -8,31 +8,15 @@
 
 import Foundation
 import SwiftNetworking
-import Typhoon
+import Dip
 
-@objc
-public class APIClientBox: NSObject {
-    let unboxed: APIClient
-    dynamic init(_ boxed: AnyObject) {
-        unboxed = boxed as! APIClient
-    }
-}
-
-class NetworkComponents: TyphoonAssembly {
+class NetworkComponents: Assembly {
     
-    dynamic func apiClient() -> AnyObject {
-        return TyphoonDefinition.withClass(APIClientBox.self) { (def: TyphoonDefinition!) in
-            def.useInitializer("init:") { (initializer: TyphoonMethod!) in
-                initializer.injectParameterWith(NetworkComponents.apiClientInstance)
-            }
+    let apiClient = AssemblyDefinitionOf<GhostApiClient> { _ in
+        DefinitionOf(scope: .Prototype) {
+            APIClient(baseURL: NSURL(string: "http://localhost:2368")!) as GhostApiClient
         }
     }
-    
-    private static let apiClientInstance: APIClient = {
-        let host = "http://localhost:2368"
-        let client = APIClient(baseURL: NSURL(string: host)!)
-        return client
-        }()
     
 }
 

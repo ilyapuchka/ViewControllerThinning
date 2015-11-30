@@ -7,37 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		091989B01BC9536D00E9B560 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */; settings = {ASSET_TAGS = (); }; };
-		092CF9E31BDD281900E4D482 /* NetworkComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092CF9E21BDD281900E4D482 /* NetworkComponents.swift */; settings = {ASSET_TAGS = (); }; };
-		092CF9E51BDD288400E4D482 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092CF9E41BDD288400E4D482 /* UIComponents.swift */; settings = {ASSET_TAGS = (); }; };
-		0980983A1BDD3731001CE22A /* Typhoon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 092CF9E61BDD2A8F00E4D482 /* Typhoon.framework */; };
-		098AF8971BC0057E00D43EE0 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC0501BC8597D00C61D26 /* FormBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC04F1BC8597C00C61D26 /* FormBehaviour.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC0521BC85A3500C61D26 /* AuthFormBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0511BC85A3500C61D26 /* AuthFormBehaviour.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC0541BC85ABC00C61D26 /* BackgroundHighlightableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0531BC85ABC00C61D26 /* BackgroundHighlightableView.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC0571BC85FC400C61D26 /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0561BC85FC400C61D26 /* ShakeAnimation.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC05A1BC8673D00C61D26 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0581BC8673D00C61D26 /* FormTextField.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC05B1BC8673D00C61D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0591BC8673D00C61D26 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
-		099DC05D1BC8715E00C61D26 /* HighlightableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC05C1BC8715E00C61D26 /* HighlightableButton.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC98C1BB802BA00B0F90D /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC98B1BB802BA00B0F90D /* UIImage+Named.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC98E1BB8048700B0F90D /* UIView+InterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC98D1BB8048700B0F90D /* UIView+InterfaceBuilder.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC9921BB805A300B0F90D /* UIView+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9911BB805A300B0F90D /* UIView+Appearance.m */; settings = {ASSET_TAGS = (); }; };
-		09BAC9951BB809A800B0F90D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9941BB809A800B0F90D /* UIView+Extensions.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC9A21BB817EC00B0F90D /* FormTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A11BB817EC00B0F90D /* FormTextFieldTheme.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC9A71BB897C000B0F90D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A61BB897C000B0F90D /* AuthView.swift */; settings = {ASSET_TAGS = (); }; };
-		09BAC9A91BB89BA000B0F90D /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BAC9A81BB89BA000B0F90D /* AuthView.xib */; settings = {ASSET_TAGS = (); }; };
+		091989B01BC9536D00E9B560 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */; };
+		092CF9E31BDD281900E4D482 /* NetworkComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092CF9E21BDD281900E4D482 /* NetworkComponents.swift */; };
+		092CF9E51BDD288400E4D482 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092CF9E41BDD288400E4D482 /* UIComponents.swift */; };
+		097801BE1C0CAD9A00A62A09 /* SwiftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097801BD1C0CAD9A00A62A09 /* SwiftNetworking.framework */; };
+		098A74081C0B7A35005C1296 /* GhostApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A74071C0B7A35005C1296 /* GhostApiClient.swift */; };
+		098AF8971BC0057E00D43EE0 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */; };
+		099526731C2C23C400977332 /* Dip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097801BB1C0CAD9300A62A09 /* Dip.framework */; };
+		099DC0501BC8597D00C61D26 /* FormBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC04F1BC8597C00C61D26 /* FormBehaviour.swift */; };
+		099DC0521BC85A3500C61D26 /* AuthFormBehaviour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0511BC85A3500C61D26 /* AuthFormBehaviour.swift */; };
+		099DC0541BC85ABC00C61D26 /* BackgroundHighlightableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0531BC85ABC00C61D26 /* BackgroundHighlightableView.swift */; };
+		099DC0571BC85FC400C61D26 /* ShakeAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0561BC85FC400C61D26 /* ShakeAnimation.swift */; };
+		099DC05A1BC8673D00C61D26 /* FormTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0581BC8673D00C61D26 /* FormTextField.swift */; };
+		099DC05B1BC8673D00C61D26 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC0591BC8673D00C61D26 /* ViewController.swift */; };
+		099DC05D1BC8715E00C61D26 /* HighlightableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099DC05C1BC8715E00C61D26 /* HighlightableButton.swift */; };
+		09BAC98C1BB802BA00B0F90D /* UIImage+Named.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC98B1BB802BA00B0F90D /* UIImage+Named.swift */; };
+		09BAC98E1BB8048700B0F90D /* UIView+InterfaceBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC98D1BB8048700B0F90D /* UIView+InterfaceBuilder.swift */; };
+		09BAC9921BB805A300B0F90D /* UIView+Appearance.m in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9911BB805A300B0F90D /* UIView+Appearance.m */; };
+		09BAC9951BB809A800B0F90D /* UIView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9941BB809A800B0F90D /* UIView+Extensions.swift */; };
+		09BAC9A21BB817EC00B0F90D /* FormTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A11BB817EC00B0F90D /* FormTextFieldTheme.swift */; };
+		09BAC9A71BB897C000B0F90D /* AuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BAC9A61BB897C000B0F90D /* AuthView.swift */; };
+		09BAC9A91BB89BA000B0F90D /* AuthView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09BAC9A81BB89BA000B0F90D /* AuthView.xib */; };
 		09E2D41E1BB7476100DBF6BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09E2D41D1BB7476100DBF6BA /* AppDelegate.swift */; };
 		09E2D4231BB7476100DBF6BA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E2D4211BB7476100DBF6BA /* Main.storyboard */; };
 		09E2D4251BB7476100DBF6BA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09E2D4241BB7476100DBF6BA /* Assets.xcassets */; };
 		09E2D4281BB7476100DBF6BA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09E2D4261BB7476100DBF6BA /* LaunchScreen.storyboard */; };
-		09E2D4601BB74AE800DBF6BA /* SwiftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09E2D45F1BB74AD500DBF6BA /* SwiftNetworking.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		092CF9E21BDD281900E4D482 /* NetworkComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkComponents.swift; sourceTree = "<group>"; };
 		092CF9E41BDD288400E4D482 /* UIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
-		092CF9E61BDD2A8F00E4D482 /* Typhoon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Typhoon.framework; path = Carthage/Build/iOS/Typhoon.framework; sourceTree = "<group>"; };
+		097801BB1C0CAD9300A62A09 /* Dip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dip.framework; path = Carthage/Build/iOS/Dip.framework; sourceTree = "<group>"; };
+		097801BD1C0CAD9A00A62A09 /* SwiftNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftNetworking.framework; path = Carthage/Build/iOS/SwiftNetworking.framework; sourceTree = "<group>"; };
+		098A74071C0B7A35005C1296 /* GhostApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostApiClient.swift; sourceTree = "<group>"; };
 		098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldTheme.swift; sourceTree = "<group>"; };
 		099DC04F1BC8597C00C61D26 /* FormBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FormBehaviour.swift; sourceTree = "<group>"; };
 		099DC0511BC85A3500C61D26 /* AuthFormBehaviour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthFormBehaviour.swift; sourceTree = "<group>"; };
@@ -62,7 +65,6 @@
 		09E2D4271BB7476100DBF6BA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09E2D4291BB7476100DBF6BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09E2D45D1BB74A9800DBF6BA /* Cartfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Cartfile; sourceTree = "<group>"; };
-		09E2D45F1BB74AD500DBF6BA /* SwiftNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftNetworking.framework; path = Carthage/Build/iOS/SwiftNetworking.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				09E2D4601BB74AE800DBF6BA /* SwiftNetworking.framework in Frameworks */,
-				0980983A1BDD3731001CE22A /* Typhoon.framework in Frameworks */,
+				097801BE1C0CAD9A00A62A09 /* SwiftNetworking.framework in Frameworks */,
+				099526731C2C23C400977332 /* Dip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				099DC04E1BC8596A00C61D26 /* Behaviours */,
+				098A74071C0B7A35005C1296 /* GhostApiClient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -195,8 +198,8 @@
 		09E2D45E1BB74AC600DBF6BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				092CF9E61BDD2A8F00E4D482 /* Typhoon.framework */,
-				09E2D45F1BB74AD500DBF6BA /* SwiftNetworking.framework */,
+				097801BD1C0CAD9A00A62A09 /* SwiftNetworking.framework */,
+				097801BB1C0CAD9300A62A09 /* Dip.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -277,7 +280,7 @@
 			);
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftNetworking.framework",
-				"$(SRCROOT)/Carthage/Build/iOS/Typhoon.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/Dip.framework",
 			);
 			name = "Copy Frameworks";
 			outputPaths = (
@@ -295,6 +298,7 @@
 			files = (
 				092CF9E31BDD281900E4D482 /* NetworkComponents.swift in Sources */,
 				092CF9E51BDD288400E4D482 /* UIComponents.swift in Sources */,
+				098A74081C0B7A35005C1296 /* GhostApiClient.swift in Sources */,
 				09BAC9951BB809A800B0F90D /* UIView+Extensions.swift in Sources */,
 				09BAC9A21BB817EC00B0F90D /* FormTextFieldTheme.swift in Sources */,
 				099DC05D1BC8715E00C61D26 /* HighlightableButton.swift in Sources */,

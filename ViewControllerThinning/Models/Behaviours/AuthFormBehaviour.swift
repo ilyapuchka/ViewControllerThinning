@@ -9,27 +9,25 @@
 import UIKit
 import SwiftNetworking
 
-class AuthFormBehaviour: NSObject, FormBehaviour {
+protocol AuthFormBehaviour: FormBehaviour, UITextFieldDelegate {
+    var userNameInput: UITextField! { get set }
+    var passwordInput: UITextField! { get set }
     
-    let apiClient: APIClient
+    var onLoggedIn: ((error: NSError?, performedRequest: Bool) -> ())? { get set }
+}
+
+class AuthFormBehaviourImp: NSObject, AuthFormBehaviour {
     
-    init(APIClient apiClient: APIClientBox) {
-        self.apiClient = apiClient.unboxed
+    let apiClient: GhostApiClient
+    
+    init(apiClient: GhostApiClient) {
+        self.apiClient = apiClient
     }
     
-    var userNameInput: UITextField! {
-        didSet {
-            userNameInput.delegate = self
-        }
-    }
+    var userNameInput: UITextField!
+    var passwordInput: UITextField!
     
-    var passwordInput: UITextField! {
-        didSet {
-            passwordInput.delegate = self
-        }
-    }
-    
-    var formFields: [UIView]! {
+    var formFields: [UIView] {
         return [userNameInput, passwordInput]
     }
     
@@ -62,7 +60,7 @@ class AuthFormBehaviour: NSObject, FormBehaviour {
     
 }
 
-extension AuthFormBehaviour: UITextFieldDelegate {
+extension AuthFormBehaviourImp {
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         if textField == formFields.last {

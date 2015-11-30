@@ -8,19 +8,13 @@
 
 import UIKit
 
-@objc
 protocol Animation {
     var duration: Double {get}
     var view: UIView? {get}
+    
+    func play()
 }
 
-extension Animation {
-    func play() {
-        fatalError("Concrete instances of Animation protocol should provide implementation of this method.")
-    }
-}
-
-@objc
 protocol ShakeAnimation: Animation {
     var maxOffset: Double {get set}
     var keyPath: String {get set}
@@ -39,7 +33,7 @@ extension ShakeAnimation {
     }
 }
 
-class ShakeAnimationImp: NSObject, ShakeAnimation {
+class ShakeAnimationImp: ShakeAnimation {
     
     @IBInspectable
     var duration: Double = 0.2
@@ -52,6 +46,10 @@ class ShakeAnimationImp: NSObject, ShakeAnimation {
     
     @IBOutlet
     weak var view: UIView?
+    
+    init(view: UIView) {
+        self.view = view
+    }
     
 }
 

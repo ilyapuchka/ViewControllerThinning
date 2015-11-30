@@ -7,16 +7,11 @@
 //
 
 import UIKit
+import Dip
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-
-}
-
-extension AppDelegate {
-    func initialAssemblies() -> [AnyClass] {
-        return [NetworkComponents.self, UIComponents.self]
-    }
+    let container = DependencyContainer(assemblies: [UIComponents()])
 }
 

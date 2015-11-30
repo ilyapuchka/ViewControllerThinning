@@ -7,47 +7,40 @@
 //
 
 import Foundation
-import Typhoon
+import Dip
 
-class UIComponents: TyphoonAssembly {
+class UIComponents: Assembly {
     
-    dynamic func authViewController() -> AnyObject {
-        return TyphoonDefinition.withClass(ViewController.self) { def in
-            def.injectProperty("nibName", with: "AuthView")
-            def.injectProperty("formBehaviour")
-            def.performAfterInjections("typhoonDidInject:") { method in
-                method.injectParameterWith(self)
-            }
+    let authViewController = AssemblyDefinitionOf<ViewController>(tag: "ViewController") { _ in
+        IBDefintion().resolveDependencies { (c, vc) -> () in
+            vc.animationsFactory = try! c.resolve() as AnimationsFactory
         }
     }
 
-    private(set) var networkComponents: NetworkComponents!
-
-    dynamic func authFormBehaviour() -> AnyObject {
-        return TyphoonDefinition.withClass(AuthFormBehaviour.self) {def in
-            def.useInitializer("initWithAPIClient:") { method in
-                method.injectParameterWith(self.networkComponents.apiClient())
-            }
+    let authFormBehaviour = AssemblyDefinitionOf<AuthFormBehaviour> { (container: DependencyContainer) in
+        container.register() { AuthFormBehaviourImp(apiClient: try! container.resolve()) as AuthFormBehaviour }
+    }
+    
+    let animationFactory = AssemblyDefinitionOf<AnimationsFactory> { (container: DependencyContainer) in
+        DefinitionOf(scope: .Prototype) { [unowned container] in
+            container as AnimationsFactory
         }
     }
     
-    dynamic func shakeAnimaton(view: UIView) -> AnyObject {
-        return TyphoonDefinition.withClass(ShakeAnimationImp.self) { def in
-            def.injectProperty("view", with: view)
+    let shakeAnimaton = AssemblyDefinitionOf<ShakeAnimation> { _ in
+        DefinitionOf(scope: .Prototype) { (view: UIView) in
+            ShakeAnimationImp(view: view) as ShakeAnimation
         }
     }
+    
+    //Collaborating assemblies
+    
+    let networkComponents = NetworkComponents()
     
 }
 
-extension ViewController {
-    
-    func typhoonDidInject(uiComponents: UIComponents) {
-        formBehaviour?.userNameInput = authView.userNameInput
-        formBehaviour?.passwordInput = authView.passwordInput
-        authView.loginButton.addTarget(formBehaviour, action: "submitForm", forControlEvents: .TouchUpInside)
-        authView.cancelButton.addTarget(formBehaviour, action: "cancelForm", forControlEvents: .TouchUpInside)
-        
-        authView.userNameInput.shakeAnimation = uiComponents.shakeAnimaton(authView.userNameInput) as! ShakeAnimationImp
-        authView.passwordInput.shakeAnimation = uiComponents.shakeAnimaton(authView.passwordInput) as! ShakeAnimationImp
+extension DependencyContainer: AnimationsFactory {
+    func shakeAnimation(view: UIView) -> ShakeAnimation {
+        return try! self.resolve(withArguments: view) as ShakeAnimation
     }
 }
