@@ -35,7 +35,6 @@ class AuthView: UIView {
         didSet {
             userNameInput.leftView = UIImageView(image: UIImage(.InputEmailIcon))
             userNameInput.leftViewMode = UITextFieldViewMode.Always
-            userNameInput.theme = FormTextFieldCustomTheme()
         }
     }
     
@@ -44,7 +43,6 @@ class AuthView: UIView {
         didSet {
             passwordInput.leftView = UIImageView(image: UIImage(.InputPasswordIcon))
             passwordInput.leftViewMode = UITextFieldViewMode.Always
-            passwordInput.theme = FormTextFieldCustomTheme()
         }
     }
 

@@ -17,6 +17,7 @@ protocol TextFieldTheme {
     var backgroundColor: UIColor {get}
 }
 
+//Default text field theme
 extension TextFieldTheme {
     var textColor: UIColor {
         return UIColor.blackColor()

@@ -22,22 +22,20 @@ extension FormTextFieldTheme {
     }
     
     var invalidIndicatorColor: UIColor {
-        return UIColor(red: 220.0/255.0, green: 0, blue: 0, alpha: 1)
+        return MyColors.invalidFormTextFieldIndicatorColor()
     }
 }
 
-struct FormTextFieldDefaultTheme: FormTextFieldTheme {}
-
-struct FormTextFieldCustomTheme: FormTextFieldTheme {
+struct FormTextFieldDefaultTheme: FormTextFieldTheme {
     
     var textColor: UIColor {
-        return UIColor.whiteColor()
+        return MyColors.whiteTextColor()
     }
     var placeholderColor: UIColor {
-        return UIColor.lightTextColor()
+        return MyColors.formTextFieldPlaceholderColor()
     }
     var tintColor: UIColor {
-        return UIColor.whiteColor()
+        return placeholderColor
     }
     var leftViewTintColor: UIColor {
         return placeholderColor
@@ -46,11 +44,11 @@ struct FormTextFieldCustomTheme: FormTextFieldTheme {
         return placeholderColor
     }
     var backgroundColor: UIColor {
-        return UIColor(red: 103.0/255.0, green: 103.0/255.0, blue: 103.0/255.0, alpha: 1)
+        return MyColors.formTextFieldDarkGrayBackgroundColor()
     }
     
     var highlightedBackgroundColor: UIColor {
-        return UIColor(red: 145.0/255.0, green: 145.0/255.0, blue: 145.0/255.0, alpha: 1)
+        return MyColors.formTextFieldLightGrayBackgroundColor()
     }
     
 }
