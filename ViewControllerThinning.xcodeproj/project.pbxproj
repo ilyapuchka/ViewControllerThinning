@@ -10,6 +10,7 @@
 		091989B01BC9536D00E9B560 /* UIViewController+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */; };
 		092CF9E31BDD281900E4D482 /* NetworkComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092CF9E21BDD281900E4D482 /* NetworkComponents.swift */; };
 		092CF9E51BDD288400E4D482 /* UIComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 092CF9E41BDD288400E4D482 /* UIComponents.swift */; };
+		0969D7CA1CC043AD0091BAC1 /* DipUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0969D7C91CC043AD0091BAC1 /* DipUI.framework */; };
 		097801BE1C0CAD9A00A62A09 /* SwiftNetworking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 097801BD1C0CAD9A00A62A09 /* SwiftNetworking.framework */; };
 		098A74081C0B7A35005C1296 /* GhostApiClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A74071C0B7A35005C1296 /* GhostApiClient.swift */; };
 		098AF8971BC0057E00D43EE0 /* TextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098AF8961BC0057E00D43EE0 /* TextFieldTheme.swift */; };
@@ -38,6 +39,7 @@
 		091989AF1BC9536D00E9B560 /* UIViewController+Alerts.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alerts.swift"; sourceTree = "<group>"; };
 		092CF9E21BDD281900E4D482 /* NetworkComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkComponents.swift; sourceTree = "<group>"; };
 		092CF9E41BDD288400E4D482 /* UIComponents.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIComponents.swift; sourceTree = "<group>"; };
+		0969D7C91CC043AD0091BAC1 /* DipUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DipUI.framework; path = Carthage/Build/iOS/DipUI.framework; sourceTree = "<group>"; };
 		097801BB1C0CAD9300A62A09 /* Dip.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Dip.framework; path = Carthage/Build/iOS/Dip.framework; sourceTree = "<group>"; };
 		097801BD1C0CAD9A00A62A09 /* SwiftNetworking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftNetworking.framework; path = Carthage/Build/iOS/SwiftNetworking.framework; sourceTree = "<group>"; };
 		098A74071C0B7A35005C1296 /* GhostApiClient.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GhostApiClient.swift; sourceTree = "<group>"; };
@@ -72,6 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0969D7CA1CC043AD0091BAC1 /* DipUI.framework in Frameworks */,
 				097801BE1C0CAD9A00A62A09 /* SwiftNetworking.framework in Frameworks */,
 				099526731C2C23C400977332 /* Dip.framework in Frameworks */,
 			);
@@ -198,6 +201,7 @@
 		09E2D45E1BB74AC600DBF6BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0969D7C91CC043AD0091BAC1 /* DipUI.framework */,
 				097801BD1C0CAD9A00A62A09 /* SwiftNetworking.framework */,
 				097801BB1C0CAD9300A62A09 /* Dip.framework */,
 			);
@@ -281,6 +285,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/SwiftNetworking.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/Dip.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/DipUI.framework",
 			);
 			name = "Copy Frameworks";
 			outputPaths = (

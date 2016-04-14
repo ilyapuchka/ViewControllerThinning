@@ -1,2 +1,4 @@
-github "ilyapuchka/Dip" "90ee3025834cf44dc204179410a5870ec12f3020"
-github "ilyapuchka/SwiftNetworking" "3feb154dd17760d4d958171f3dafc4712837f71d"
+github "ilyapuchka/Dip" "ec853fd6d51acb79b521a153c5d11a5762ab053f"
+github "AliSoftware/Dip" "4.4.0"
+github "ilyapuchka/SwiftNetworking" "199c276a9408022b7f7a29f67cf6e2a15b088b82"
+github "AliSoftware/Dip-UI" "0.1.0"

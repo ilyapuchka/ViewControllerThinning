@@ -1,2 +1,3 @@
 github "ilyapuchka/SwiftNetworking" "master"
-github "ilyapuchka/Dip" "feature/storyboards"
+github "ilyapuchka/Dip" "feature/assemblies"
+github "AliSoftware/Dip-UI"

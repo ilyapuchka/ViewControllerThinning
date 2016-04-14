@@ -12,10 +12,8 @@ import Dip
 
 class NetworkComponents: Assembly {
     
-    let apiClient = AssemblyDefinitionOf<GhostApiClient> { _ in
-        DefinitionOf(scope: .Prototype) {
-            APIClient(baseURL: NSURL(string: "http://localhost:2368")!) as GhostApiClient
-        }
+    let apiClient = AssemblyDefinitionOf() { (_, _: Void) in
+        APIClient(baseURL: NSURL(string: "http://localhost:2368")!) as GhostApiClient
     }
     
 }

@@ -8,10 +8,13 @@
 
 import UIKit
 import Dip
+import DipUI
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
-    let container = DependencyContainer(assemblies: [UIComponents()])
+    let container = DependencyContainer(assemblies: [UIComponents()]) { c in
+        DependencyContainer.uiContainer = c
+    }
 }
 

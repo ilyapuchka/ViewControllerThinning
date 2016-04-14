@@ -8,29 +8,25 @@
 
 import Foundation
 import Dip
+import DipUI
 
 class UIComponents: Assembly {
     
-    let authViewController = AssemblyDefinitionOf<ViewController>(tag: "ViewController") { _ in
-        IBDefintion().resolveDependencies { (c, vc) -> () in
-            vc.animationsFactory = try! c.resolve() as AnimationsFactory
-        }
-    }
-
-    let authFormBehaviour = AssemblyDefinitionOf<AuthFormBehaviour> { (container: DependencyContainer) in
-        container.register() { AuthFormBehaviourImp(apiClient: try! container.resolve()) as AuthFormBehaviour }
+    let authViewController = AssemblyDefinitionOf(tag: "ViewController") { (_, _: Void) in ViewController() }
+        .resolveDependencies { (c, vc) -> () in
+            vc.animationsFactory = try c.resolve() as AnimationsFactory
     }
     
-    let animationFactory = AssemblyDefinitionOf<AnimationsFactory> { (container: DependencyContainer) in
-        DefinitionOf(scope: .Prototype) { [unowned container] in
-            container as AnimationsFactory
-        }
+    let authFormBehaviour = AssemblyDefinitionOf() { (c, _: Void) in
+        AuthFormBehaviourImp(apiClient: try c.resolve()) as AuthFormBehaviour
     }
     
-    let shakeAnimaton = AssemblyDefinitionOf<ShakeAnimation> { _ in
-        DefinitionOf(scope: .Prototype) { (view: UIView) in
-            ShakeAnimationImp(view: view) as ShakeAnimation
-        }
+    let animationFactory = AssemblyDefinitionOf() { (c, _: Void) in
+        c as AnimationsFactory
+    }
+    
+    let shakeAnimaton = AssemblyDefinitionOf() { (_, view: UIView) in
+        ShakeAnimationImp(view: view) as ShakeAnimation
     }
     
     //Collaborating assemblies
@@ -38,6 +34,8 @@ class UIComponents: Assembly {
     let networkComponents = NetworkComponents()
     
 }
+
+extension ViewController: StoryboardInstantiatable {}
 
 extension DependencyContainer: AnimationsFactory {
     func shakeAnimation(view: UIView) -> ShakeAnimation {
